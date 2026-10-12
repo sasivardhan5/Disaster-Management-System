@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Incident & Live Tracking — DisasterGuard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Demonstration Banner Notice -->
+  <div class="demo-banner">
+    <i class="fas fa-triangle-exclamation"></i>
+    <span>DEMONSTRATION REPORTING PORTAL: Submissions are logged into the project demo database. For life-threatening emergencies, call official services (112 / 108) immediately.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-wrapper">
+          <i class="fas fa-shield-heart"></i>
+        </div>
+        <div>
+          <span>DisasterGuard</span>
+          <span class="brand-sub">Emergency Management Platform</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-item"><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item"><a href="map.html"><i class="fas fa-map-location-dot"></i> Live Map</a></li>
+          <li class="nav-item"><a href="alerts.html"><i class="fas fa-bell"></i> Disaster Alerts</a></li>
+          <li class="nav-item active"><a href="report.html"><i class="fas fa-bullhorn"></i> Report Incident</a></li>
+          <li class="nav-item"><a href="shelters.html"><i class="fas fa-campground"></i> Shelters</a></li>
+          <li class="nav-item"><a href="safety.html"><i class="fas fa-book-medical"></i> Safety Guides</a></li>
+          <li class="nav-item"><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li class="nav-item" id="nav-auth-item"><a href="login.html"><i class="fas fa-user-lock"></i> Admin Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="report.html" class="btn-report-emergency">
+          <i class="fas fa-triangle-exclamation"></i>
+          <span>REPORT EMERGENCY</span>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background:#14243A; color:#fff; padding: 40px 0 32px 0;">
+    <div class="container">
+      <span style="font-size:0.8rem; color:#FCA5A5; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Citizen Incident Transmission</span>
+      <h1 style="font-size:2.2rem; font-weight:800; margin-top:4px;">Report an Incident</h1>
+      <p style="color:#CBD5E1; font-size:0.95rem; margin-top:4px;">
+        Submit urgent hazards, infrastructure blockages, or casualty alerts to the regional operations center.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-wrapper section">
+    <div class="container">
+      
+      <!-- Critical Hotline Warning -->
+      <div class="emergency-callout-box">
+        <i class="fas fa-triangle-exclamation"></i>
+        <div>
+          <h4>Life-Threatening Emergency Notice</h4>
+          <p>
+            If you or people around you face an active life hazard, fire, or acute medical trauma, do not rely solely on online web submission forms. Call <strong>112 (National Emergency)</strong> or <strong>108 (Ambulance)</strong> immediately for instant emergency dispatch.
+          </p>
+        </div>
+      </div>
+
+      <div class="report-grid-layout">
+        
+        <!-- Left: Incident Submission Form -->
+        <div class="form-card">
+          <h2 style="font-size:1.4rem; font-weight:800; color:#14243A; margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+            <i class="fas fa-file-pen text-primary"></i> Incident Details Form
+          </h2>
+
+          <div id="form-feedback-message" style="display:none; padding:14px; border-radius:8px; margin-bottom:20px; font-size:0.9rem; background:#FEF2F2; color:#DC2626; border:1px solid #FECACA;"></div>
+
+          <form id="incident-report-form" enctype="multipart/form-data">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Incident Category <span class="req">*</span></label>
+                <select id="incident-type" class="form-control" required>
+                  <option value="" disabled selected>Select disaster category...</option>
+                  <option value="Flood">Flood / Waterlogging</option>
+                  <option value="Cyclone">Cyclone / Wind Damage</option>
+                  <option value="Earthquake">Earthquake Tremor</option>
+                  <option value="Fire">Fire / Smoke Flare-up</option>
+                  <option value="Landslide">Landslide / Rockfall</option>
+                  <option value="Road blockage">Road Blockage / Tree Fall</option>
+                  <option value="Building damage">Building Structural Damage</option>
+                  <option value="Medical emergency">Medical Urgent Care</option>
+                  <option value="Other">Other Emergency</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Urgency Level <span class="req">*</span></label>
+                <select id="incident-urgency" class="form-control" required>
+                  <option value="Low">Low (Informational / Minor)</option>
+                  <option value="Moderate" selected>Moderate (Needs Attention)</option>
+                  <option value="High">High (Immediate Danger)</option>
+                  <option value="Critical">Critical (Life Threatening)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Incident Headline / Title <span class="req">*</span></label>
+              <input type="text" id="incident-title" class="form-control" placeholder="e.g. Flooded Underpass with 3 Stranded Vehicles" required maxlength="120" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Location Description <span class="req">*</span></label>
+              <input type="text" id="incident-location" class="form-control" placeholder="e.g. Main Street Junction, Near Metro Pillar 142" required maxlength="150" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                  <label class="form-label" style="margin:0;">GPS Latitude</label>
+                  <button type="button" id="btn-detect-location" class="btn btn-secondary btn-sm" style="padding:2px 8px; font-size:0.75rem;">
+                    <i class="fas fa-crosshairs"></i> Use GPS
+                  </button>
+                </div>
+                <input type="number" step="any" id="incident-lat" class="form-control" placeholder="e.g. 17.3850" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">GPS Longitude</label>
+                <input type="number" step="any" id="incident-lng" class="form-control" placeholder="e.g. 78.4867" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Estimated People Affected</label>
+                <input type="number" id="incident-affected" class="form-control" min="0" value="1" placeholder="Number of people" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Your Contact Phone (Optional)</label>
+                <input type="tel" id="incident-contact" class="form-control" placeholder="Kept confidential with admin" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Comprehensive Situation Description <span class="req">*</span></label>
+              <textarea id="incident-desc" class="form-control" rows="4" placeholder="Describe the current hazard, water levels, injuries, trapped individuals, and access impediments..." required></textarea>
+            </div>
+
+            <!-- Optional Image Upload -->
+            <div class="form-group">
+              <label class="form-label">Incident Photo Verification (Optional)</label>
+              <label for="incident-image" class="file-dropzone">
+                <i class="fas fa-cloud-arrow-up"></i>
+                <div id="file-chosen-name" style="font-size:0.88rem; font-weight:600; color:#334155;">
+                  Click to select photo (JPG, PNG, WebP up to 5MB)
+                </div>
+                <div style="font-size:0.75rem; color:#94A3B8; margin-top:4px;">Helps responders verify severity</div>
+                <input type="file" id="incident-image" name="image" accept="image/jpeg,image/png,image/webp" style="display:none;" />
+              </label>
+
+              <div id="image-preview-wrapper" class="file-preview-wrap">
+                <img id="image-preview-tag" class="file-preview-img" alt="Uploaded Preview" />
+              </div>
+            </div>
+
+            <button type="submit" id="report-submit-btn" class="btn btn-danger btn-lg" style="width:100%; margin-top:12px;">
+              <i class="fas fa-paper-plane"></i> Submit Incident Report
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Status Tracking Section -->
+        <div>
+          <div class="track-report-card">
+            <h3 style="font-size:1.25rem; font-weight:800; color:#14243A; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-magnifying-glass-location text-primary"></i> Track Report Status
+            </h3>
+            <p style="font-size:0.88rem; color:#64748B; margin-bottom:18px;">
+              Check the review, verification, and dispatch progress of any previously submitted report.
+            </p>
+
+            <div style="display:flex; gap:8px; margin-bottom:20px;">
+              <input type="text" id="track-reference-id" class="form-control" placeholder="Enter Ref ID (e.g. DG-2026-1001)" />
+              <button id="btn-track-lookup" class="btn btn-primary" style="white-space:nowrap;">
+                <i class="fas fa-search"></i> Track
+              </button>
+            </div>
+
+            <div id="track-result-container">
+              <!-- Rendered dynamically upon lookup -->
+              <div style="padding:24px; text-align:center; background:#F8FAFC; border-radius:10px; border:1px dashed #CBD5E1; color:#94A3B8;">
+                <i class="fas fa-ticket" style="font-size:2rem; margin-bottom:8px;"></i>
+                <div style="font-size:0.85rem;">Enter a Reference Code above to inspect live incident resolution steps.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reporting Guidelines -->
+          <div style="background:#fff; border:1px solid #E2E8F0; border-radius:14px; padding:24px; margin-top:24px; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <h4 style="font-size:0.95rem; font-weight:700; color:#14243A; margin-bottom:12px;">
+              <i class="fas fa-circle-question text-primary"></i> Reporting Guidelines
+            </h4>
+            <ul style="font-size:0.85rem; color:#475569; padding-left:18px; line-height:1.6;">
+              <li>Provide exact street names, landmarks, or GPS coordinates to accelerate response.</li>
+              <li>Specify whether casualties or elderly residents require immediate physical assistance.</li>
+              <li>Do not submit speculative or false reports; emergency resources must remain unencumbered.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h4><i class="fas fa-shield-heart" style="color:#DC2626;"></i> DisasterGuard</h4>
+        <p>A modern disaster management system designed for public safety and community preparedness.</p>
+        <span class="footer-disclaimer-pill"><i class="fas fa-graduation-cap"></i> Educational Demonstration</span>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Live Map</a></li>
+          <li><a href="alerts.html">Alerts Feed</a></li>
+          <li><a href="shelters.html">Relief Shelters</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Preparedness</h5>
+        <ul class="footer-links">
+          <li><a href="safety.html">Safety Protocols</a></li>
+          <li><a href="safety.html">Emergency Kit</a></li>
+          <li><a href="about.html">About DisasterGuard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Emergency Hotlines</h5>
+        <div class="emergency-hotlines-box">
+          <div class="hotline-row"><span>Central Emergency:</span><span class="hotline-num">112</span></div>
+          <div class="hotline-row"><span>Ambulance:</span><span class="hotline-num">108</span></div>
+          <div class="hotline-row"><span>Fire Response:</span><span class="hotline-num">101</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2026 DisasterGuard. Demonstration project only.</div>
+      <a href="about.html" style="color:#94A3B8;">Project Limitations</a>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>

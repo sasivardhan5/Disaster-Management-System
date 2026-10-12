@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Live Map — DisasterGuard</title>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="height:100vh; overflow:hidden; display:flex; flex-direction:column;">
+
+  <!-- Demonstration Banner Notice -->
+  <div class="demo-banner">
+    <i class="fas fa-triangle-exclamation"></i>
+    <span>DEMONSTRATION MAP: Markers and coordinates represent fictional project demonstration data. Markers do not depict verified real-world incidents or available facilities.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-wrapper">
+          <i class="fas fa-shield-heart"></i>
+        </div>
+        <div>
+          <span>DisasterGuard</span>
+          <span class="brand-sub">Emergency Management Platform</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-item"><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item active"><a href="map.html"><i class="fas fa-map-location-dot"></i> Live Map</a></li>
+          <li class="nav-item"><a href="alerts.html"><i class="fas fa-bell"></i> Disaster Alerts</a></li>
+          <li class="nav-item"><a href="report.html"><i class="fas fa-bullhorn"></i> Report Incident</a></li>
+          <li class="nav-item"><a href="shelters.html"><i class="fas fa-campground"></i> Shelters</a></li>
+          <li class="nav-item"><a href="safety.html"><i class="fas fa-book-medical"></i> Safety Guides</a></li>
+          <li class="nav-item"><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li class="nav-item" id="nav-auth-item"><a href="login.html"><i class="fas fa-user-lock"></i> Admin Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="report.html" class="btn-report-emergency">
+          <i class="fas fa-triangle-exclamation"></i>
+          <span>REPORT EMERGENCY</span>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-screen Map Layout -->
+  <div class="map-layout-container" style="flex:1;">
+    
+    <!-- Sidebar Controls -->
+    <aside class="map-sidebar">
+      <div class="map-sidebar-header">
+        <h3><i class="fas fa-layer-group text-primary"></i> Map Intelligence</h3>
+        <p style="font-size:0.82rem; color:#64748B; margin-top:4px;">Filter active hazard zones & rescue assets</p>
+      </div>
+
+      <!-- Search in map -->
+      <div style="padding: 12px 20px;">
+        <div class="search-input-wrapper" style="min-width:auto;">
+          <i class="fas fa-search"></i>
+          <input type="text" id="map-search-input" class="search-input" placeholder="Search markers & zones..." />
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="map-filter-pills">
+        <button class="map-pill active" data-cat="All">
+          <span><i class="fas fa-globe"></i> All Markers</span>
+          <span class="map-pill-badge" id="count-all">0</span>
+        </button>
+        <button class="map-pill" data-cat="Disasters">
+          <span><i class="fas fa-triangle-exclamation" style="color:#DC2626;"></i> Active Disasters</span>
+          <span class="map-pill-badge" id="count-disasters">0</span>
+        </button>
+        <button class="map-pill" data-cat="Shelters">
+          <span><i class="fas fa-campground" style="color:#2563EB;"></i> Relief Shelters</span>
+          <span class="map-pill-badge" id="count-shelters">0</span>
+        </button>
+        <button class="map-pill" data-cat="Hospitals">
+          <span><i class="fas fa-hospital" style="color:#16A34A;"></i> Trauma Hospitals</span>
+          <span class="map-pill-badge" id="count-hospitals">0</span>
+        </button>
+        <button class="map-pill" data-cat="Emergency services">
+          <span><i class="fas fa-shield-halved" style="color:#EA580C;"></i> Rescue Services</span>
+          <span class="map-pill-badge" id="count-ems">0</span>
+        </button>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div style="padding: 16px 20px; display:flex; flex-direction:column; gap:8px;">
+        <button id="btn-locate-me" class="btn btn-secondary btn-sm" style="width:100%; justify-content:flex-start;">
+          <i class="fas fa-crosshairs text-primary"></i> Locate My Position (GPS)
+        </button>
+        <button id="btn-reset-map" class="btn btn-secondary btn-sm" style="width:100%; justify-content:flex-start;">
+          <i class="fas fa-compress-arrows-alt"></i> Reset Map View
+        </button>
+        <a href="report.html" class="btn btn-danger btn-sm" style="width:100%; justify-content:center;">
+          <i class="fas fa-plus-circle"></i> Log Incident At Location
+        </a>
+      </div>
+
+      <!-- Map Legend -->
+      <div class="map-legend-box">
+        <h5>Map Legend & Markers</h5>
+        <div class="legend-item">
+          <span class="legend-color-dot disaster"></span>
+          <span>Disaster Incident / Flood / Fire</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color-dot shelter"></span>
+          <span>Evacuation Relief Shelter</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color-dot hospital"></span>
+          <span>Trauma Center / Hospital</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color-dot emergency"></span>
+          <span>Fire Station / NDRF Command</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Map Canvas -->
+    <div class="map-container-wrapper">
+      <div id="disaster-map"></div>
+    </div>
+
+  </div>
+
+  <!-- Leaflet JS CDN -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/common.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

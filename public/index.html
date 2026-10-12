@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DisasterGuard — Disaster Management System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Demonstration Banner Notice -->
+  <div class="demo-banner">
+    <i class="fas fa-triangle-exclamation"></i>
+    <span>DEMONSTRATION SYSTEM: All alerts, incident logs, and facility counts represent simulated demo data for educational demonstration. For actual life-threatening emergencies, dial 112 / 108.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-wrapper">
+          <i class="fas fa-shield-heart"></i>
+        </div>
+        <div>
+          <span>DisasterGuard</span>
+          <span class="brand-sub">Emergency Management Platform</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-item active"><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item"><a href="map.html"><i class="fas fa-map-location-dot"></i> Live Map</a></li>
+          <li class="nav-item"><a href="alerts.html"><i class="fas fa-bell"></i> Disaster Alerts</a></li>
+          <li class="nav-item"><a href="report.html"><i class="fas fa-bullhorn"></i> Report Incident</a></li>
+          <li class="nav-item"><a href="shelters.html"><i class="fas fa-campground"></i> Shelters</a></li>
+          <li class="nav-item"><a href="safety.html"><i class="fas fa-book-medical"></i> Safety Guides</a></li>
+          <li class="nav-item"><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li class="nav-item" id="nav-auth-item"><a href="login.html"><i class="fas fa-user-lock"></i> Admin Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="report.html" class="btn-report-emergency">
+          <i class="fas fa-triangle-exclamation"></i>
+          <span>REPORT EMERGENCY</span>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>DISASTER OPERATIONS & EARLY WARNING READY</span>
+        </div>
+        <h1 class="hero-heading">Stay Informed. Stay Safe. Save Lives.</h1>
+        <p class="hero-subtitle">
+          Access disaster alerts, locate relief centers, report emergencies, and stay prepared with DisasterGuard — your comprehensive community disaster preparedness and crisis response command system.
+        </p>
+        <div class="hero-ctas">
+          <a href="map.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-map-marked-alt"></i> View Disaster Map
+          </a>
+          <a href="report.html" class="btn btn-danger btn-lg">
+            <i class="fas fa-triangle-exclamation"></i> Report an Emergency
+          </a>
+          <a href="safety.html" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-shield-heart"></i> Explore Safety Guides
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hero-radar-card">
+            <div class="radar-header">
+              <h4><i class="fas fa-satellite-dish" style="color:#60A5FA;"></i> Active Incident Radar</h4>
+              <span class="badge badge-critical"><i class="fas fa-circle-dot"></i> Live Stream</span>
+            </div>
+            
+            <div class="radar-item">
+              <div class="radar-item-left">
+                <div class="radar-icon flood"><i class="fas fa-water"></i></div>
+                <div>
+                  <div class="radar-title">Riverfront Inundation</div>
+                  <div class="radar-sub">Riverside District &bull; Critical</div>
+                </div>
+              </div>
+              <span class="badge badge-critical">Active</span>
+            </div>
+
+            <div class="radar-item">
+              <div class="radar-item-left">
+                <div class="radar-icon cyclone"><i class="fas fa-wind"></i></div>
+                <div>
+                  <div class="radar-title">Severe Windstorm</div>
+                  <div class="radar-sub">Coastal Harbor Belt &bull; High</div>
+                </div>
+              </div>
+              <span class="badge badge-high">Active</span>
+            </div>
+
+            <div class="radar-item">
+              <div class="radar-item-left">
+                <div class="radar-icon fire"><i class="fas fa-fire"></i></div>
+                <div>
+                  <div class="radar-title">Warehouse Perimeter Fire</div>
+                  <div class="radar-sub">Old Market Strip &bull; Resolved</div>
+                </div>
+              </div>
+              <span class="badge badge-low">Controlled</span>
+            </div>
+
+            <div style="margin-top:16px; font-size:0.75rem; color:#94A3B8; text-align:center;">
+              DisasterGuard Automated Telemetry & Early Response Feed
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Statistics Cards -->
+  <section class="stats-section container">
+    <div class="stats-grid">
+      <div class="stat-card active-alerts">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-active-alerts">0</div>
+          <div class="stat-label">Active Alerts</div>
+        </div>
+      </div>
+
+      <div class="stat-card reported-incidents">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-reported-incidents">0</div>
+          <div class="stat-label">Reported Incidents</div>
+        </div>
+      </div>
+
+      <div class="stat-card relief-shelters">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-campground"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-relief-shelters">0</div>
+          <div class="stat-label">Relief Shelters</div>
+        </div>
+      </div>
+
+      <div class="stat-card resolved-incidents">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-circle-check"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-resolved-incidents">0</div>
+          <div class="stat-label">Resolved Incidents</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Disaster Alerts Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Current Disaster Alerts</h2>
+          <p class="section-subtitle">Real-time alerts, hazard warnings, and recommended immediate safety precautions.</p>
+        </div>
+        <a href="alerts.html" class="btn btn-secondary">
+          View All Alerts Feed <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="alerts-grid" id="home-alerts-container">
+        <!-- Rendered dynamically by main.js -->
+        <div style="grid-column: 1 / -1; text-align:center; padding: 40px; color:#64748B;">
+          <i class="fas fa-spinner fa-spin" style="font-size:2rem; margin-bottom:12px;"></i>
+          <p>Syncing active emergency advisories...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Emergency Access Section -->
+  <section class="section" style="background-color: #EDF2F7;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Quick Emergency Access</h2>
+          <p class="section-subtitle">Rapid crisis navigation tools for citizens, responders, and relief volunteers.</p>
+        </div>
+      </div>
+
+      <div class="quick-access-grid">
+        <a href="report.html" class="quick-card">
+          <div class="quick-icon-circle">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h3>Report an Incident</h3>
+          <p>Log a local crisis, flooding, fire, or structural collapse with GPS coordinates.</p>
+          <span class="btn btn-secondary btn-sm">Report Now &rarr;</span>
+        </a>
+
+        <a href="shelters.html" class="quick-card">
+          <div class="quick-icon-circle">
+            <i class="fas fa-campground"></i>
+          </div>
+          <h3>Find a Shelter</h3>
+          <p>Locate nearby relief camps, municipal shelters, and check real-time bed capacity.</p>
+          <span class="btn btn-secondary btn-sm">View Shelters &rarr;</span>
+        </a>
+
+        <a href="safety.html" class="quick-card">
+          <div class="quick-icon-circle">
+            <i class="fas fa-shield-heart"></i>
+          </div>
+          <h3>Safety Instructions</h3>
+          <p>Step-by-step Before, During, and After survival manuals for severe natural disasters.</p>
+          <span class="btn btn-secondary btn-sm">Safety Guides &rarr;</span>
+        </a>
+
+        <a href="#" class="quick-card open-emergency-contacts">
+          <div class="quick-icon-circle">
+            <i class="fas fa-phone-volume"></i>
+          </div>
+          <h3>Emergency Contacts</h3>
+          <p>Direct telephone hotlines for ambulance, fire rescue, police, and regional relief units.</p>
+          <span class="btn btn-secondary btn-sm">Call Hotlines &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disaster Preparedness Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Disaster Preparedness Knowledge</h2>
+          <p class="section-subtitle">Practical preventative instructions to protect your home and loved ones.</p>
+        </div>
+        <a href="safety.html" class="btn btn-secondary">
+          Interactive Checklist &rarr;
+        </a>
+      </div>
+
+      <div class="preparedness-grid">
+        <div class="prep-card flood">
+          <div class="prep-card-icon"><i class="fas fa-water"></i></div>
+          <h4>Floods & Flash Floods</h4>
+          <p>Elevate electrical breaker panels, store sandbags, and never walk or drive through flowing deluge waters.</p>
+          <a href="safety.html" class="prep-link">Read Flood Protocol <i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <div class="prep-card cyclone">
+          <div class="prep-card-icon"><i class="fas fa-wind"></i></div>
+          <h4>Cyclones & Storms</h4>
+          <p>Board glass windows, anchor loose rooftop items, and shelter in interior windowless spaces.</p>
+          <a href="safety.html" class="prep-link">Read Cyclone Protocol <i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <div class="prep-card earthquake">
+          <div class="prep-card-icon"><i class="fas fa-house-crack"></i></div>
+          <h4>Earthquakes</h4>
+          <p>Remember Drop, Cover, and Hold On. Anchor heavy furniture and prepare for secondary tremors.</p>
+          <a href="safety.html" class="prep-link">Read Earthquake Protocol <i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <div class="prep-card fire">
+          <div class="prep-card-icon"><i class="fas fa-fire"></i></div>
+          <h4>Fires & Wildfires</h4>
+          <p>Crawl low under toxic smoke, test smoke alarms monthly, and practice dual household escape exits.</p>
+          <a href="safety.html" class="prep-link">Read Fire Protocol <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h4><i class="fas fa-shield-heart" style="color:#DC2626;"></i> DisasterGuard</h4>
+        <p>
+          A modern, unified disaster management and civic crisis response platform engineered to bridge community awareness, emergency alerts, and relief logistics.
+        </p>
+        <span class="footer-disclaimer-pill">
+          <i class="fas fa-graduation-cap"></i> Educational Project Prototype &bull; Demo Mode
+        </span>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Navigation</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Interactive Live Map</a></li>
+          <li><a href="alerts.html">Disaster Alerts Feed</a></li>
+          <li><a href="report.html">Report Incident</a></li>
+          <li><a href="shelters.html">Relief Centers & Shelters</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Preparedness & Help</h5>
+        <ul class="footer-links">
+          <li><a href="safety.html">Emergency Survival Guides</a></li>
+          <li><a href="safety.html">Disaster Kit Checklist</a></li>
+          <li><a href="about.html">About DisasterGuard</a></li>
+          <li><a href="login.html">Command Console Login</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Emergency Hotlines</h5>
+        <div class="emergency-hotlines-box">
+          <div class="hotline-row">
+            <span>National Emergency:</span>
+            <span class="hotline-num">112</span>
+          </div>
+          <div class="hotline-row">
+            <span>Medical Ambulance:</span>
+            <span class="hotline-num">108</span>
+          </div>
+          <div class="hotline-row">
+            <span>Fire & Rescue:</span>
+            <span class="hotline-num">101</span>
+          </div>
+          <div class="hotline-row">
+            <span>Disaster Control:</span>
+            <span class="hotline-num">1070</span>
+          </div>
+        </div>
+        <p style="font-size:0.75rem; margin-top:10px; color:#94A3B8;">
+          Note: This educational platform is not an official governmental dispatch service.
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 DisasterGuard — Disaster Management System. Designed for educational project demonstration.</div>
+      <div style="display:flex; gap:16px;">
+        <a href="about.html" style="color:#94A3B8;">System Limitations</a>
+        <a href="safety.html" style="color:#94A3B8;">Safety Checklist</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

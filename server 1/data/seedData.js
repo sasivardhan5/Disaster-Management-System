@@ -1,0 +1,20 @@
+const now = new Date().toISOString();
+module.exports = {
+  alerts: [
+    { id:'AL-1001', type:'Heavy rainfall', severity:'high', location:'Vijayawada (demo area)', title:'Heavy rainfall advisory', description:'Sample advisory for demonstration only. Check official sources for current conditions.', instructions:'Avoid waterlogged roads and follow instructions from local authorities.', source:'DEMO DATA — not an official warning', status:'active', createdAt:now, updatedAt:now },
+    { id:'AL-1002', type:'Flood', severity:'moderate', location:'Riverside zone (demo area)', title:'Flood preparedness notice', description:'Illustrative flood preparedness notice used for the project demo.', instructions:'Prepare essential supplies and do not enter moving floodwater.', source:'DEMO DATA — not an official warning', status:'active', createdAt:now, updatedAt:now },
+    { id:'AL-1003', type:'Cyclone', severity:'low', location:'Coastal district (demo area)', title:'Preparedness information', description:'Sample preparedness information. No live hazard data is connected.', instructions:'Review family plans and monitor official weather bulletins.', source:'DEMO DATA', status:'resolved', createdAt:now, updatedAt:now }
+  ],
+  incidents: [
+    { id:'DG-2026-1001', type:'Road blockage', title:'Tree blocking road (sample)', description:'Fictional report used to demonstrate incident triage.', location:'Demo Road, Vijayawada', latitude:16.5062, longitude:80.6480, peopleAffected:0, urgency:'moderate', status:'under_review', verified:false, createdAt:now, updatedAt:now, contact:'' },
+    { id:'DG-2026-1002', type:'Flood', title:'Waterlogging report (sample)', description:'Illustrative report only; not a verified incident.', location:'Demo low-lying area', latitude:16.51, longitude:80.64, peopleAffected:4, urgency:'high', status:'submitted', verified:false, createdAt:now, updatedAt:now, contact:'' }
+  ],
+  shelters: [
+    { id:'SH-1001', name:'Demo Community Relief Centre', location:'Vijayawada (sample location)', latitude:16.5062, longitude:80.6480, capacity:200, availableBeds:120, facilities:['Water','Food','Medical support'], status:'unverified', updatedAt:now },
+    { id:'SH-1002', name:'Demo School Shelter', location:'Sample district', latitude:16.52, longitude:80.66, capacity:100, availableBeds:null, facilities:['Water','Sleeping arrangements'], status:'unverified', updatedAt:now }
+  ],
+  points: [
+    { id:'P-1', type:'hospital', name:'Demo Hospital Marker', location:'Sample location — not verified', latitude:16.508, longitude:80.65, details:'Illustrative map marker only.' },
+    { id:'P-2', type:'emergency', name:'Demo Emergency Service Marker', location:'Sample location — not verified', latitude:16.50, longitude:80.64, details:'Illustrative map marker only.' }
+  ]
+};

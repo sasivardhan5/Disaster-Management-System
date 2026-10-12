@@ -1,0 +1,44 @@
+[
+  {
+    "id": "HOSP-01",
+    "name": "Metropolitan Government General Hospital (Trauma Center)",
+    "address": "Hospital Road, Afzal Gunj",
+    "coordinates": {
+      "lat": 17.3768,
+      "lng": 78.4795
+    },
+    "category": "Hospitals",
+    "capacity": "800 Beds",
+    "emergencyContact": "108 / +91 40 2460 0121",
+    "status": "Operational 24/7",
+    "details": "Equipped with 24/7 Level-1 Trauma response, ICU, burn ward, and emergency blood bank."
+  },
+  {
+    "id": "HOSP-02",
+    "name": "Apollo District Emergency & Specialty Clinic",
+    "address": "Jubilee Hills Road No. 72",
+    "coordinates": {
+      "lat": 17.4278,
+      "lng": 78.4112
+    },
+    "category": "Hospitals",
+    "capacity": "350 Beds",
+    "emergencyContact": "1066 / +91 40 2360 7777",
+    "status": "Operational 24/7",
+    "details": "Advanced cardiac resuscitation, hyperbaric oxygen therapy, and pediatric urgent care."
+  },
+  {
+    "id": "HOSP-03",
+    "name": "Nizam Emergency Care Institute",
+    "address": "Panjagutta Main Crossing",
+    "coordinates": {
+      "lat": 17.4243,
+      "lng": 78.4526
+    },
+    "category": "Hospitals",
+    "capacity": "500 Beds",
+    "emergencyContact": "+91 40 2348 9000",
+    "status": "Operational 24/7",
+    "details": "Regional public medical university hospital with mass casualty triage protocols."
+  }
+]

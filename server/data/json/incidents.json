@@ -1,0 +1,122 @@
+[
+  {
+    "id": "DG-2026-1001",
+    "incidentType": "Flood",
+    "title": "Waterlogging & Stranded Commuters at Metro Underpass",
+    "description": "Stagnant stormwater reaching 3.5 feet depth beneath South Metro underpass. Two sedans disabled in middle lane; 6 occupants assisted to dry shoulder.",
+    "location": "South Metro Underpass, Station Junction 7",
+    "coordinates": {
+      "lat": 17.3753,
+      "lng": 78.4812
+    },
+    "affectedCount": 15,
+    "urgencyLevel": "High",
+    "status": "Response Assigned",
+    "verificationState": "Verified",
+    "reportedBy": "K. Sharma (Citizen)",
+    "contactPhone": "Confidential (Admin Only)",
+    "imageUrl": null,
+    "createdAt": "2026-10-12T07:11:39.724Z",
+    "updatedAt": "2026-10-12T08:26:39.724Z"
+  },
+  {
+    "id": "DG-2026-1002",
+    "incidentType": "Road blockage",
+    "title": "Fallen Ancient Banyan Tree Blocking Dual Carriageway",
+    "description": "High wind gusts toppled a large roadside tree across both inbound lanes. Power cables snapped and resting across tarmac.",
+    "location": "Grand Trunk Boulevard, Near Milestone 12",
+    "coordinates": {
+      "lat": 17.4125,
+      "lng": 78.4601
+    },
+    "affectedCount": 120,
+    "urgencyLevel": "Moderate",
+    "status": "Under Review",
+    "verificationState": "Verified",
+    "reportedBy": "A. Joseph (Local Resident)",
+    "contactPhone": "Confidential (Admin Only)",
+    "imageUrl": null,
+    "createdAt": "2026-10-12T05:11:39.724Z",
+    "updatedAt": "2026-10-12T08:11:39.724Z"
+  },
+  {
+    "id": "DG-2026-1003",
+    "incidentType": "Building damage",
+    "title": "Partial Roof Collapse of Abandoned Storage Shed",
+    "description": "Water-saturated corrugated roof gave way. No trapped casualties identified, but perimeter debris obstructs pedestrian pathway.",
+    "location": "Old Port Road, Warehouse 3B",
+    "coordinates": {
+      "lat": 17.3912,
+      "lng": 78.452
+    },
+    "affectedCount": 0,
+    "urgencyLevel": "Low",
+    "status": "Submitted",
+    "verificationState": "Pending",
+    "reportedBy": "R. Patel (Neighbor)",
+    "contactPhone": "Confidential (Admin Only)",
+    "imageUrl": null,
+    "createdAt": "2026-10-12T03:11:39.724Z",
+    "updatedAt": "2026-10-12T03:11:39.724Z"
+  },
+  {
+    "id": "DG-2026-1004",
+    "incidentType": "Medical emergency",
+    "title": "Senior Citizen Dehydration & Heat Stroke Symptoms",
+    "description": "Multiple elderly residents reporting severe dizziness and fainting spells at Community Center during midday peak heat.",
+    "location": "Greenfield Senior Community Center",
+    "coordinates": {
+      "lat": 17.4285,
+      "lng": 78.491
+    },
+    "affectedCount": 8,
+    "urgencyLevel": "Critical",
+    "status": "Response Assigned",
+    "verificationState": "Verified",
+    "reportedBy": "S. Rao (Community Volunteer)",
+    "contactPhone": "Confidential (Admin Only)",
+    "imageUrl": null,
+    "createdAt": "2026-10-12T08:11:39.724Z",
+    "updatedAt": "2026-10-12T08:51:39.724Z"
+  },
+  {
+    "id": "DG-2026-1005",
+    "incidentType": "Fire",
+    "title": "Transformer Spark & Dry Brush Flare-up",
+    "description": "Distribution transformer arcing initiated a 50-meter dry grass fire along railway boundary fence. Local volunteers extinguished surface flames.",
+    "location": "Railway Colony East Border",
+    "coordinates": {
+      "lat": 17.451,
+      "lng": 78.502
+    },
+    "affectedCount": 40,
+    "urgencyLevel": "Moderate",
+    "status": "Resolved",
+    "verificationState": "Verified",
+    "reportedBy": "V. Verma (Station Watchman)",
+    "contactPhone": "Confidential (Admin Only)",
+    "imageUrl": null,
+    "createdAt": "2026-10-11T05:11:39.724Z",
+    "updatedAt": "2026-10-11T23:11:39.724Z"
+  },
+  {
+    "id": "DG-2026-1006",
+    "incidentType": "Cyclone",
+    "title": "Coastal Tin Sheds Blown Away in Squall",
+    "description": "Sudden gale blew sheet metal roofs into canal embankment. 4 fishing families displaced to nearby school veranda.",
+    "location": "Fisherman Cove North Colony",
+    "coordinates": {
+      "lat": 17.3502,
+      "lng": 78.5215
+    },
+    "affectedCount": 16,
+    "urgencyLevel": "High",
+    "status": "Resolved",
+    "verificationState": "Verified",
+    "reportedBy": "M. Naidu (Council Member)",
+    "contactPhone": "Confidential (Admin Only)",
+    "imageUrl": null,
+    "createdAt": "2026-10-10T05:11:39.724Z",
+    "updatedAt": "2026-10-11T15:11:39.724Z"
+  }
+]

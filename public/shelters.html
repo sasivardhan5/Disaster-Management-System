@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relief Shelters & Evacuation Centers — DisasterGuard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Demonstration Banner Notice -->
+  <div class="demo-banner">
+    <i class="fas fa-triangle-exclamation"></i>
+    <span>DEMONSTRATION DIRECTORY: All listed evacuation shelters, available bed counts, and amenities represent simulated sample data for project demonstration purposes.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-wrapper">
+          <i class="fas fa-shield-heart"></i>
+        </div>
+        <div>
+          <span>DisasterGuard</span>
+          <span class="brand-sub">Emergency Management Platform</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-item"><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item"><a href="map.html"><i class="fas fa-map-location-dot"></i> Live Map</a></li>
+          <li class="nav-item"><a href="alerts.html"><i class="fas fa-bell"></i> Disaster Alerts</a></li>
+          <li class="nav-item"><a href="report.html"><i class="fas fa-bullhorn"></i> Report Incident</a></li>
+          <li class="nav-item active"><a href="shelters.html"><i class="fas fa-campground"></i> Shelters</a></li>
+          <li class="nav-item"><a href="safety.html"><i class="fas fa-book-medical"></i> Safety Guides</a></li>
+          <li class="nav-item"><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li class="nav-item" id="nav-auth-item"><a href="login.html"><i class="fas fa-user-lock"></i> Admin Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="report.html" class="btn-report-emergency">
+          <i class="fas fa-triangle-exclamation"></i>
+          <span>REPORT EMERGENCY</span>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background:#14243A; color:#fff; padding: 40px 0 32px 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span style="font-size:0.8rem; color:#93C5FD; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Evacuation Logistics & Safe Havens</span>
+          <h1 style="font-size:2.2rem; font-weight:800; margin-top:4px;">Relief Shelters Directory</h1>
+          <p style="color:#CBD5E1; font-size:0.95rem; margin-top:4px;">
+            Find verified municipal shelters, emergency evacuation complexes, and check live bed capacity.
+          </p>
+        </div>
+        <div>
+          <a href="map.html" class="btn btn-primary btn-sm">
+            <i class="fas fa-map-location-dot"></i> View All on Live Map
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-wrapper section">
+    <div class="container">
+      
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="search-input-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" id="shelter-search" class="search-input" placeholder="Search by shelter name, avenue, or ward..." />
+        </div>
+
+        <div class="filter-selects">
+          <select id="filter-facility" class="filter-select" aria-label="Filter by Facility">
+            <option value="All">All Facilities</option>
+            <option value="Drinking water">Drinking Water</option>
+            <option value="Food">Food / Rations</option>
+            <option value="Medical support">Medical Support</option>
+            <option value="Accessible facilities">Accessible Facilities</option>
+            <option value="Sleeping arrangements">Sleeping Arrangements</option>
+          </select>
+
+          <select id="filter-status" class="filter-select" aria-label="Filter by Operational Status">
+            <option value="All">All Operational Statuses</option>
+            <option value="Open">Open</option>
+            <option value="Near Capacity">Near Capacity</option>
+            <option value="Preparing">Preparing</option>
+            <option value="Closed">Closed</option>
+          </select>
+
+          <button id="btn-reset-shelter-filters" class="btn btn-secondary btn-sm">
+            <i class="fas fa-rotate-left"></i> Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Count & Legend -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <span id="shelters-count-label" style="font-size:0.9rem; font-weight:600; color:#64748B;">Loading relief shelters...</span>
+        <span style="font-size:0.8rem; color:#94A3B8;"><i class="fas fa-shield-halved"></i> Community Evacuation Safe Zones</span>
+      </div>
+
+      <!-- Shelters Cards Grid -->
+      <div class="shelters-grid" id="shelters-grid-container">
+        <!-- Rendered dynamically by shelters.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h4><i class="fas fa-shield-heart" style="color:#DC2626;"></i> DisasterGuard</h4>
+        <p>A modern disaster management system designed for public safety and community preparedness.</p>
+        <span class="footer-disclaimer-pill"><i class="fas fa-graduation-cap"></i> Educational Demonstration</span>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Live Map</a></li>
+          <li><a href="alerts.html">Alerts Feed</a></li>
+          <li><a href="report.html">Report Emergency</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Preparedness</h5>
+        <ul class="footer-links">
+          <li><a href="safety.html">Survival Guides</a></li>
+          <li><a href="safety.html">Go-Bag Checklist</a></li>
+          <li><a href="about.html">About System</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Emergency Hotlines</h5>
+        <div class="emergency-hotlines-box">
+          <div class="hotline-row"><span>Central Police:</span><span class="hotline-num">112</span></div>
+          <div class="hotline-row"><span>Medical Care:</span><span class="hotline-num">108</span></div>
+          <div class="hotline-row"><span>Fire Service:</span><span class="hotline-num">101</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2026 DisasterGuard. Demonstration project only.</div>
+      <a href="about.html" style="color:#94A3B8;">Read Legal Notice</a>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/shelters.js"></script>
+</body>
+</html>

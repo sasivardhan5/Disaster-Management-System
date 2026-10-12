@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About DisasterGuard — Project Overview & Architecture</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Demonstration Banner Notice -->
+  <div class="demo-banner">
+    <i class="fas fa-circle-info"></i>
+    <span>EDUCATIONAL PROTOTYPE: DisasterGuard is an academic software engineering simulation and is not affiliated with official civil protection agencies.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-wrapper">
+          <i class="fas fa-shield-heart"></i>
+        </div>
+        <div>
+          <span>DisasterGuard</span>
+          <span class="brand-sub">Emergency Management Platform</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-item"><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item"><a href="map.html"><i class="fas fa-map-location-dot"></i> Live Map</a></li>
+          <li class="nav-item"><a href="alerts.html"><i class="fas fa-bell"></i> Disaster Alerts</a></li>
+          <li class="nav-item"><a href="report.html"><i class="fas fa-bullhorn"></i> Report Incident</a></li>
+          <li class="nav-item"><a href="shelters.html"><i class="fas fa-campground"></i> Shelters</a></li>
+          <li class="nav-item"><a href="safety.html"><i class="fas fa-book-medical"></i> Safety Guides</a></li>
+          <li class="nav-item active"><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li class="nav-item" id="nav-auth-item"><a href="login.html"><i class="fas fa-user-lock"></i> Admin Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="report.html" class="btn-report-emergency">
+          <i class="fas fa-triangle-exclamation"></i>
+          <span>REPORT EMERGENCY</span>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background:#14243A; color:#fff; padding: 48px 0 36px 0;">
+    <div class="container">
+      <span style="font-size:0.8rem; color:#93C5FD; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Mission, Architecture & Limitations</span>
+      <h1 style="font-size:2.4rem; font-weight:800; margin-top:4px;">About DisasterGuard</h1>
+      <p style="color:#CBD5E1; font-size:1.05rem; margin-top:6px; max-width:750px;">
+        A full-stack emergency response and crisis communications system demonstrating how digital tools enhance disaster resilience.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-wrapper section">
+    <div class="container" style="max-width:960px;">
+      
+      <!-- Mission Card -->
+      <div class="form-card" style="margin-bottom:32px;">
+        <h2 style="font-size:1.4rem; font-weight:800; color:#14243A; margin-bottom:14px; display:flex; align-items:center; gap:10px;">
+          <i class="fas fa-bullseye text-primary"></i> Purpose of the Platform
+        </h2>
+        <p style="color:#374151; font-size:0.95rem; line-height:1.65; margin-bottom:14px;">
+          In catastrophic weather events and sudden civil crises, fragmented communication and delayed situational intelligence cost lives. <strong>DisasterGuard</strong> is created to unify four vital pillars of emergency response into a coherent, accessible interface:
+        </p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0;">
+          <div style="background:#F8FAFC; padding:16px; border-radius:10px; border:1px solid #E2E8F0;">
+            <h4 style="color:#1E40AF; font-size:0.95rem; font-weight:700; margin-bottom:6px;"><i class="fas fa-bullhorn"></i> Real-Time Threat Alerts</h4>
+            <p style="font-size:0.85rem; color:#64748B;">Centralized broadcasts detailing hazard severity, coordinates, and concrete safety directives.</p>
+          </div>
+          <div style="background:#F8FAFC; padding:16px; border-radius:10px; border:1px solid #E2E8F0;">
+            <h4 style="color:#16A34A; font-size:0.95rem; font-weight:700; margin-bottom:6px;"><i class="fas fa-map-location-dot"></i> Geospatial Intelligence</h4>
+            <p style="font-size:0.85rem; color:#64748B;">Interactive Leaflet maps depicting hazard zones, trauma hospitals, and evacuation hubs.</p>
+          </div>
+          <div style="background:#F8FAFC; padding:16px; border-radius:10px; border:1px solid #E2E8F0;">
+            <h4 style="color:#DC2626; font-size:0.95rem; font-weight:700; margin-bottom:6px;"><i class="fas fa-file-pen"></i> Citizen Incident Intake</h4>
+            <p style="font-size:0.85rem; color:#64748B;">Crowdsourced reports with GPS coordinates, photos, and unique reference codes for live tracking.</p>
+          </div>
+          <div style="background:#F8FAFC; padding:16px; border-radius:10px; border:1px solid #E2E8F0;">
+            <h4 style="color:#EA580C; font-size:0.95rem; font-weight:700; margin-bottom:6px;"><i class="fas fa-campground"></i> Shelter & Supply Logistics</h4>
+            <p style="font-size:0.85rem; color:#64748B;">Live bed capacity meters and amenities directories to channel displaced families smoothly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preparedness & Volunteers Card -->
+      <div class="form-card" style="margin-bottom:32px;">
+        <h2 style="font-size:1.4rem; font-weight:800; color:#14243A; margin-bottom:14px; display:flex; align-items:center; gap:10px;">
+          <i class="fas fa-hand-holding-heart" style="color:#16A34A;"></i> Community & Volunteer Mobilization
+        </h2>
+        <p style="color:#374151; font-size:0.95rem; line-height:1.65; margin-bottom:12px;">
+          Civil preparedness relies not merely on centralized authorities, but on educated neighborhoods and rapid community cooperation. DisasterGuard facilitates community mobilization by enabling:
+        </p>
+        <ul style="color:#475569; font-size:0.92rem; line-height:1.65; padding-left:20px;">
+          <li>Community volunteers to view unverified hazard reports and cross-verify conditions on the ground.</li>
+          <li>Households to maintain their digital 72-Hour Survival Go-Bag checklist without needing accounts.</li>
+          <li>Emergency logistics teams to monitor shelter capacity and prevent overcrowding at individual evacuation centers.</li>
+        </ul>
+      </div>
+
+      <!-- Demonstration Version Limitations -->
+      <div class="form-card" style="border-left:5px solid #F59E0B;">
+        <h2 style="font-size:1.4rem; font-weight:800; color:#B45309; margin-bottom:14px; display:flex; align-items:center; gap:10px;">
+          <i class="fas fa-triangle-exclamation"></i> Academic Prototype Limitations & Disclaimer
+        </h2>
+        <div style="color:#374151; font-size:0.92rem; line-height:1.65;">
+          <p style="margin-bottom:10px;">
+            <strong>Important Notice:</strong> DisasterGuard is an educational engineering prototype built for college project demonstration and software architectural evaluation.
+          </p>
+          <ul style="padding-left:20px; margin-bottom:14px;">
+            <li><strong>Not an Official Warning Service:</strong> The alerts, incident tickets, and hospital bed counts displayed on this website are simulated demonstration records.</li>
+            <li><strong>No Guaranteed Responder Dispatch:</strong> Submitting a report via this website logs a ticket in the local system; it does not automatically dispatch municipal rescue forces or fire departments.</li>
+            <li><strong>Demonstration Mode Support:</strong> The system features a zero-configuration persistent storage mode that operates out-of-the-box without requiring an external MongoDB server, while seamlessly supporting full MongoDB clustering if configured.</li>
+          </ul>
+          <p style="font-weight:600; color:#B45309;">
+            In any actual real-world emergency situation, immediately contact your regional civil protection dispatchers at 112 or local emergency services.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h4><i class="fas fa-shield-heart" style="color:#DC2626;"></i> DisasterGuard</h4>
+        <p>A modern disaster management system designed for public safety and community preparedness.</p>
+        <span class="footer-disclaimer-pill"><i class="fas fa-graduation-cap"></i> Educational Demonstration</span>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Live Map</a></li>
+          <li><a href="alerts.html">Alerts Feed</a></li>
+          <li><a href="report.html">Report Emergency</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Preparedness</h5>
+        <ul class="footer-links">
+          <li><a href="safety.html">Safety Protocols</a></li>
+          <li><a href="safety.html">Go-Bag Checklist</a></li>
+          <li><a href="login.html">Admin Console</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Emergency Hotlines</h5>
+        <div class="emergency-hotlines-box">
+          <div class="hotline-row"><span>Central Helpline:</span><span class="hotline-num">112</span></div>
+          <div class="hotline-row"><span>Ambulance:</span><span class="hotline-num">108</span></div>
+          <div class="hotline-row"><span>Fire Service:</span><span class="hotline-num">101</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2026 DisasterGuard. Demonstration project only.</div>
+      <a href="about.html" style="color:#94A3B8;">Project Purpose & Limitations</a>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+</body>
+</html>

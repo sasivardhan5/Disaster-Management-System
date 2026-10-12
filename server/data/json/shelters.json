@@ -1,0 +1,108 @@
+[
+  {
+    "id": "SHL-01",
+    "name": "City Central Indoor Stadium Relief Complex",
+    "address": "Stadium Way, Sector 2, Central Ward",
+    "coordinates": {
+      "lat": 17.3995,
+      "lng": 78.4735
+    },
+    "capacity": 650,
+    "availableBeds": 210,
+    "facilities": [
+      "Drinking water",
+      "Food",
+      "Medical support",
+      "Accessible facilities",
+      "Sleeping arrangements",
+      "Power backup"
+    ],
+    "contactInfo": "+91 40 2345 6780 / shelter-central@disasterguard.demo",
+    "operationalStatus": "Open",
+    "notes": "Equipped with dedicated pediatric area and backup oxygen concentrators.",
+    "lastUpdated": "2026-10-12T08:11:39.724Z"
+  },
+  {
+    "id": "SHL-02",
+    "name": "St. Teresa Higher Secondary School Evacuation Hub",
+    "address": "Hillview Avenue, North District",
+    "coordinates": {
+      "lat": 17.432,
+      "lng": 78.462
+    },
+    "capacity": 400,
+    "availableBeds": 85,
+    "facilities": [
+      "Drinking water",
+      "Food",
+      "Sleeping arrangements",
+      "First-aid post"
+    ],
+    "contactInfo": "+91 40 2345 6781 / shelter-north@disasterguard.demo",
+    "operationalStatus": "Open",
+    "notes": "Hot meals served twice daily via regional relief partner kitchen.",
+    "lastUpdated": "2026-10-12T07:11:39.724Z"
+  },
+  {
+    "id": "SHL-03",
+    "name": "Community Center & Multipurpose Pavilion",
+    "address": "42 Lakeview Promenade, South Gate",
+    "coordinates": {
+      "lat": 17.368,
+      "lng": 78.491
+    },
+    "capacity": 250,
+    "availableBeds": 0,
+    "facilities": [
+      "Drinking water",
+      "Food",
+      "Accessible facilities",
+      "Sleeping arrangements"
+    ],
+    "contactInfo": "+91 40 2345 6782",
+    "operationalStatus": "Near Capacity",
+    "notes": "Dormitory quarters full; emergency overflow cots awaiting delivery.",
+    "lastUpdated": "2026-10-12T08:31:39.724Z"
+  },
+  {
+    "id": "SHL-04",
+    "name": "Government Polytechnic Hostel Compound",
+    "address": "Industrial Ring Road, West Suburb",
+    "coordinates": {
+      "lat": 17.42,
+      "lng": 78.38
+    },
+    "capacity": 500,
+    "availableBeds": 340,
+    "facilities": [
+      "Drinking water",
+      "Food",
+      "Medical support",
+      "Accessible facilities",
+      "Sleeping arrangements"
+    ],
+    "contactInfo": "+91 40 2345 6783",
+    "operationalStatus": "Open",
+    "notes": "Primary intake center for western riverfront evacuees.",
+    "lastUpdated": "2026-10-12T06:11:39.724Z"
+  },
+  {
+    "id": "SHL-05",
+    "name": "Old Town Municipal Town Hall",
+    "address": "Heritage Clocktower Square",
+    "coordinates": {
+      "lat": 17.362,
+      "lng": 78.472
+    },
+    "capacity": 200,
+    "availableBeds": 150,
+    "facilities": [
+      "Drinking water",
+      "First-aid post"
+    ],
+    "contactInfo": "+91 40 2345 6784",
+    "operationalStatus": "Preparing",
+    "notes": "Currently undergoing sanitation sweep and bed setup.",
+    "lastUpdated": "2026-10-12T04:11:39.724Z"
+  }
+]

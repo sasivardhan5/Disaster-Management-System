@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Authentication — DisasterGuard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background-color:#F4F7FB;">
+
+  <!-- Demonstration Banner Notice -->
+  <div class="demo-banner">
+    <i class="fas fa-lock"></i>
+    <span>ADMIN CONSOLE ACCESS: Documented demonstration credentials available below for evaluators and project demonstrations.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-wrapper">
+          <i class="fas fa-shield-heart"></i>
+        </div>
+        <div>
+          <span>DisasterGuard</span>
+          <span class="brand-sub">Emergency Management Platform</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-item"><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item"><a href="map.html"><i class="fas fa-map-location-dot"></i> Live Map</a></li>
+          <li class="nav-item"><a href="alerts.html"><i class="fas fa-bell"></i> Disaster Alerts</a></li>
+          <li class="nav-item"><a href="report.html"><i class="fas fa-bullhorn"></i> Report Incident</a></li>
+          <li class="nav-item"><a href="shelters.html"><i class="fas fa-campground"></i> Shelters</a></li>
+          <li class="nav-item"><a href="safety.html"><i class="fas fa-book-medical"></i> Safety Guides</a></li>
+          <li class="nav-item"><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li class="nav-item active" id="nav-auth-item"><a href="login.html"><i class="fas fa-user-lock"></i> Admin Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="report.html" class="btn-report-emergency">
+          <i class="fas fa-triangle-exclamation"></i>
+          <span>REPORT EMERGENCY</span>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Form Main Container -->
+  <main class="main-wrapper" style="display:flex; align-items:center; justify-content:center; padding: 60px 20px;">
+    <div class="form-card" style="width:100%; max-width:440px; box-shadow:var(--shadow-xl);">
+      
+      <div style="text-align:center; margin-bottom:28px;">
+        <div style="
+          width: 58px;
+          height: 58px;
+          border-radius: 16px;
+          background: #EFF6FF;
+          color: #2563EB;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.6rem;
+          margin-bottom: 12px;
+          box-shadow: 0 4px 10px rgba(37,99,235,0.15);
+        ">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <h2 style="font-size:1.6rem; font-weight:800; color:#14243A;">Command Console</h2>
+        <p style="font-size:0.88rem; color:#64748B; margin-top:4px;">
+          Authorized emergency administrator sign-in
+        </p>
+      </div>
+
+      <!-- Error Message Box -->
+      <div id="login-error-msg" style="display:none; padding:12px; background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; color:#DC2626; font-size:0.85rem; margin-bottom:20px;"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label">Administrator Email</label>
+          <div style="position:relative;">
+            <i class="fas fa-envelope" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#94A3B8;"></i>
+            <input type="email" id="login-email" class="form-control" style="padding-left:40px;" placeholder="admin@disasterguard.org" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div style="position:relative;">
+            <i class="fas fa-lock" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#94A3B8;"></i>
+            <input type="password" id="login-password" class="form-control" style="padding-left:40px;" placeholder="••••••••" required />
+          </div>
+        </div>
+
+        <button type="submit" id="login-submit-btn" class="btn btn-primary btn-lg" style="width:100%; margin-top:10px;">
+          <i class="fas fa-right-to-bracket"></i> Sign In to Dashboard
+        </button>
+      </form>
+
+      <!-- Demo Credentials helper box -->
+      <div style="margin-top:28px; padding:16px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <span style="font-size:0.78rem; font-weight:700; color:#1E40AF; text-transform:uppercase;">
+            <i class="fas fa-key"></i> Demo Credentials
+          </span>
+          <button id="btn-fill-demo" class="btn btn-secondary btn-sm" style="padding:2px 8px; font-size:0.75rem;">
+            Auto-Fill
+          </button>
+        </div>
+        <div style="font-size:0.82rem; color:#475569; line-height:1.5;">
+          <div><strong>Email:</strong> <code>admin@disasterguard.org</code></div>
+          <div><strong>Password:</strong> <code>admin123</code></div>
+        </div>
+        <div style="font-size:0.72rem; color:#94A3B8; margin-top:6px;">
+          Enabled via development configuration (<code>ENABLE_DEMO_LOGIN=true</code> in <code>.env</code>).
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

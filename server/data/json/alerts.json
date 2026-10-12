@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ALT-2026-001",
+    "disasterType": "Flood",
+    "severity": "Critical",
+    "title": "Riverfront Severe Inundation Alert",
+    "location": "Riverside District, Sector 4 & 5",
+    "coordinates": {
+      "lat": 17.385044,
+      "lng": 78.486671
+    },
+    "description": "Heavy precipitation has caused local river basin levels to exceed danger thresholds by 1.8 meters. Rapid water flow reported across low-lying crossings.",
+    "safetyInstructions": "Move to elevated ground immediately. Disconnect primary electrical mains. Do not walk or drive through flowing water.",
+    "source": "National Hydrological Agency (Demo)",
+    "status": "Active",
+    "affectedPopulationEst": 15400,
+    "createdAt": "2026-10-12T06:11:39.724Z",
+    "updatedAt": "2026-10-12T08:41:39.724Z"
+  },
+  {
+    "id": "ALT-2026-002",
+    "disasterType": "Cyclone",
+    "severity": "High",
+    "title": "Severe Coastal Windstorm Advisory",
+    "location": "Eastern Maritime Belt & Harbor Zones",
+    "coordinates": {
+      "lat": 17.686816,
+      "lng": 83.218482
+    },
+    "description": "Sustained winds between 85-110 km/h with heavy squalls expected along coastal belts over the next 18 hours. Potential tidal surges up to 2 meters.",
+    "safetyInstructions": "Secure loose outdoor items. Stay indoors away from glass windows. Fishermen are strictly advised not to venture into deep sea.",
+    "source": "Meteorological Observation Department (Demo)",
+    "status": "Active",
+    "affectedPopulationEst": 42000,
+    "createdAt": "2026-10-12T02:11:39.724Z",
+    "updatedAt": "2026-10-12T07:11:39.724Z"
+  },
+  {
+    "id": "ALT-2026-003",
+    "disasterType": "Landslide",
+    "severity": "Moderate",
+    "title": "Slope Instability & Debris Flow Watch",
+    "location": "Hillside Pass & Northern Valley Bypass",
+    "coordinates": {
+      "lat": 17.440081,
+      "lng": 78.348915
+    },
+    "description": "Continuous moderate showers have saturated geological slopes along Highway 102. Minor rockfalls observed near kilometer marker 42.",
+    "safetyInstructions": "Avoid non-essential transit through steep hill corridors. Watch for sudden cracking or unusual ground movement.",
+    "source": "Geological Survey Rapid Unit (Demo)",
+    "status": "Active",
+    "affectedPopulationEst": 3200,
+    "createdAt": "2026-10-11T19:11:39.724Z",
+    "updatedAt": "2026-10-12T04:11:39.724Z"
+  },
+  {
+    "id": "ALT-2026-004",
+    "disasterType": "Heatwave",
+    "severity": "High",
+    "title": "Extreme Temperature Advisory",
+    "location": "Central Industrial Basin & Urban Core",
+    "coordinates": {
+      "lat": 17.4065,
+      "lng": 78.4772
+    },
+    "description": "Daytime surface temperatures projected to reach 44.5°C with severe heat indices. High risk of heat exhaustion and sunstroke.",
+    "safetyInstructions": "Stay hydrated with potable water. Avoid direct sun exposure between 11:30 AM and 4:00 PM. Keep vulnerable family members in cool spaces.",
+    "source": "Regional Weather Center (Demo)",
+    "status": "Active",
+    "affectedPopulationEst": 95000,
+    "createdAt": "2026-10-11T09:11:39.724Z",
+    "updatedAt": "2026-10-12T01:11:39.724Z"
+  },
+  {
+    "id": "ALT-2026-005",
+    "disasterType": "Fire",
+    "severity": "Moderate",
+    "title": "Commercial Zone Smoke Plume Warning",
+    "location": "Old Market Storage Warehouse Strip",
+    "coordinates": {
+      "lat": 17.3616,
+      "lng": 78.4747
+    },
+    "description": "Warehouse fire contained by fire crews; residual heavy smoke and reduced visibility persist within a 1.5 km radius.",
+    "safetyInstructions": "Keep building windows closed. Wear N95 face masks if navigating adjacent streets. Yield right-of-way to emergency tenders.",
+    "source": "Municipal Fire Brigade (Demo)",
+    "status": "Resolved",
+    "affectedPopulationEst": 5000,
+    "createdAt": "2026-10-10T09:11:39.724Z",
+    "updatedAt": "2026-10-11T21:11:39.724Z"
+  },
+  {
+    "id": "ALT-2026-006",
+    "disasterType": "Earthquake",
+    "severity": "Low",
+    "title": "Minor Tremor Aftershock Surveillance",
+    "location": "Southern Foothills Plateau",
+    "coordinates": {
+      "lat": 17.32,
+      "lng": 78.53
+    },
+    "description": "Magnitude 3.2 minor subterranean tremor recorded at 12 km depth. No structural collapse reported; automated surveillance active.",
+    "safetyInstructions": "Inspect home gas pipelines and electrical panels for stress fractures. Report any visible foundation cracks.",
+    "source": "National Seismology Center (Demo)",
+    "status": "Resolved",
+    "affectedPopulationEst": 12000,
+    "createdAt": "2026-10-09T09:11:39.724Z",
+    "updatedAt": "2026-10-10T21:11:39.724Z"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "EMS-01",
+    "name": "Central Fire & Disaster Rescue Command Headquarters",
+    "address": "Secretariat Road, Fire Command Complex",
+    "coordinates": {
+      "lat": 17.408,
+      "lng": 78.471
+    },
+    "category": "Emergency services",
+    "emergencyContact": "101 / 112",
+    "status": "High Readiness",
+    "details": "Equipped with heavy water bowsers, hydraulic cutters, rescue boats, and high-reach aerial ladders."
+  },
+  {
+    "id": "EMS-02",
+    "name": "National Disaster Response Force (NDRF) Regional Outpost",
+    "address": "Airfield North Sector, Gate 3",
+    "coordinates": {
+      "lat": 17.453,
+      "lng": 78.468
+    },
+    "category": "Emergency services",
+    "emergencyContact": "1070 / +91 40 2790 3211",
+    "status": "Deployed & On Standby",
+    "details": "Specialized aquatic search and rescue units, canine search squads, and flood evacuation rafts."
+  },
+  {
+    "id": "EMS-03",
+    "name": "State Disaster Emergency Operations Center (SEOC)",
+    "address": "BRKR Government Complex, 4th Floor",
+    "coordinates": {
+      "lat": 17.405,
+      "lng": 78.484
+    },
+    "category": "Emergency services",
+    "emergencyContact": "1070 (Toll Free)",
+    "status": "Active Command Monitoring",
+    "details": "Central coordination command center linking satellite radar, weather sensors, and municipal forces."
+  }
+]

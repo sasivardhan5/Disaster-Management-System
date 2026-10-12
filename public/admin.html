@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Command Console — DisasterGuard Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background-color:#F4F7FB;">
+
+  <!-- Admin Header Strip -->
+  <header class="admin-header-strip">
+    <div class="container admin-header-container">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="index.html" class="brand-logo" style="font-size:1.2rem;">
+          <div class="brand-icon-wrapper" style="width:34px; height:34px;">
+            <i class="fas fa-shield-halved" style="font-size:1rem;"></i>
+          </div>
+          <span>DisasterGuard Admin</span>
+        </a>
+        <span id="admin-storage-mode-badge" class="footer-disclaimer-pill" style="font-size:0.75rem;">
+          Initializing Data Store...
+        </span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:16px;">
+        <span style="font-size:0.85rem; color:#CBD5E1;">
+          <i class="fas fa-user-shield"></i> <span id="admin-user-display">Administrator</span>
+        </span>
+        <a href="index.html" class="btn btn-outline-white btn-sm">
+          <i class="fas fa-globe"></i> View Public Site
+        </a>
+        <button id="btn-admin-logout" class="btn btn-danger btn-sm">
+          <i class="fas fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Main Dashboard -->
+  <main class="main-wrapper" style="padding-bottom:60px;">
+    <div class="container">
+      
+      <!-- Overview KPI Cards -->
+      <div class="stats-grid" style="margin-bottom:32px;">
+        <div class="stat-card reported-incidents">
+          <div class="stat-icon-wrapper"><i class="fas fa-bullhorn"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="admin-stat-total-incidents">0</div>
+            <div class="stat-label">Total Incidents Logged</div>
+          </div>
+        </div>
+
+        <div class="stat-card" style="border-top:3px solid #F59E0B;">
+          <div class="stat-icon-wrapper" style="background:#FEF3C7; color:#D97706;"><i class="fas fa-clock"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="admin-stat-pending-reports">0</div>
+            <div class="stat-label">Pending Citizen Reports</div>
+          </div>
+        </div>
+
+        <div class="stat-card active-alerts">
+          <div class="stat-icon-wrapper"><i class="fas fa-bell"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="admin-stat-active-alerts">0</div>
+            <div class="stat-label">Active Threat Alerts</div>
+          </div>
+        </div>
+
+        <div class="stat-card resolved-incidents">
+          <div class="stat-icon-wrapper"><i class="fas fa-circle-check"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="admin-stat-resolved-incidents">0</div>
+            <div class="stat-label">Resolved & Neutralized</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Charts Section -->
+      <section style="margin-bottom:36px;">
+        <div class="section-header" style="margin-bottom:20px;">
+          <div>
+            <h2 class="section-title" style="font-size:1.4rem;">Emergency Analytics & Telemetry</h2>
+            <p class="section-subtitle">Dynamically computed from active reports and incident tickets.</p>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h4><i class="fas fa-chart-pie text-primary"></i> Incidents by Category</h4>
+            </div>
+            <canvas id="chart-by-category" height="200"></canvas>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h4><i class="fas fa-chart-bar" style="color:#EA580C;"></i> Incidents by Urgency Level</h4>
+            </div>
+            <canvas id="chart-by-severity" height="200"></canvas>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h4><i class="fas fa-circle-notch text-success"></i> Resolution Rate (Resolved vs Unresolved)</h4>
+            </div>
+            <canvas id="chart-status-breakdown" height="200"></canvas>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h4><i class="fas fa-chart-line" style="color:#2563EB;"></i> Incident Submission Activity</h4>
+            </div>
+            <canvas id="chart-timeline" height="200"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Incident Triage Management Table -->
+      <section style="margin-bottom:44px;">
+        <div class="section-header" style="margin-bottom:16px;">
+          <div>
+            <h2 class="section-title" style="font-size:1.4rem;">Citizen Incident Triage & Verification</h2>
+            <p class="section-subtitle">Review incoming reports, verify authenticity, adjust urgency, and dispatch teams.</p>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Urgency</th>
+                <th>Verification</th>
+                <th>Response Status</th>
+                <th>Submitted</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-incidents-tbody">
+              <!-- Rendered dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section: Official Alerts Broadcast Management -->
+      <section style="margin-bottom:44px;">
+        <div class="section-header" style="margin-bottom:16px;">
+          <div>
+            <h2 class="section-title" style="font-size:1.4rem;">Official Disaster Alerts Broadcasts</h2>
+            <p class="section-subtitle">Issue, update, or revoke official warnings displayed on the public alerts feed.</p>
+          </div>
+          <div>
+            <button id="btn-open-create-alert" class="btn btn-danger btn-sm">
+              <i class="fas fa-bullhorn"></i> Issue New Alert
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Alert ID</th>
+                <th>Disaster</th>
+                <th>Headline</th>
+                <th>Severity</th>
+                <th>Status</th>
+                <th>Issued At</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-alerts-tbody">
+              <!-- Rendered dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section: Relief Shelters Management -->
+      <section style="margin-bottom:44px;">
+        <div class="section-header" style="margin-bottom:16px;">
+          <div>
+            <h2 class="section-title" style="font-size:1.4rem;">Relief Shelters & Resource Management</h2>
+            <p class="section-subtitle">Manage shelter status, track bed capacity, and adjust facility inventories.</p>
+          </div>
+          <div>
+            <button id="btn-open-create-shelter" class="btn btn-primary btn-sm">
+              <i class="fas fa-plus"></i> Add New Shelter
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Shelter Name</th>
+                <th>Address</th>
+                <th>Capacity</th>
+                <th>Operational Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-shelters-tbody">
+              <!-- Rendered dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

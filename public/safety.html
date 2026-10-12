@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster Safety Guides & Checklist — DisasterGuard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Demonstration Banner Notice -->
+  <div class="demo-banner">
+    <i class="fas fa-shield-heart"></i>
+    <span>DISASTER PREPAREDNESS: The survival procedures compiled here follow standard international civil defense guidelines for educational purposes.</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-wrapper">
+          <i class="fas fa-shield-heart"></i>
+        </div>
+        <div>
+          <span>DisasterGuard</span>
+          <span class="brand-sub">Emergency Management Platform</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-item"><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item"><a href="map.html"><i class="fas fa-map-location-dot"></i> Live Map</a></li>
+          <li class="nav-item"><a href="alerts.html"><i class="fas fa-bell"></i> Disaster Alerts</a></li>
+          <li class="nav-item"><a href="report.html"><i class="fas fa-bullhorn"></i> Report Incident</a></li>
+          <li class="nav-item"><a href="shelters.html"><i class="fas fa-campground"></i> Shelters</a></li>
+          <li class="nav-item active"><a href="safety.html"><i class="fas fa-book-medical"></i> Safety Guides</a></li>
+          <li class="nav-item"><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li class="nav-item" id="nav-auth-item"><a href="login.html"><i class="fas fa-user-lock"></i> Admin Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="report.html" class="btn-report-emergency">
+          <i class="fas fa-triangle-exclamation"></i>
+          <span>REPORT EMERGENCY</span>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background:#14243A; color:#fff; padding: 40px 0 32px 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span style="font-size:0.8rem; color:#86EFAC; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Community Defense & Survival Readiness</span>
+          <h1 style="font-size:2.2rem; font-weight:800; margin-top:4px;">Disaster Safety Guides</h1>
+          <p style="color:#CBD5E1; font-size:0.95rem; margin-top:4px;">
+            Standardized Before, During, and After action procedures for primary natural and environmental hazards.
+          </p>
+        </div>
+        <div>
+          <button id="btn-print-guide" class="btn btn-outline-white btn-sm">
+            <i class="fas fa-print"></i> Print Safety Guide
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-wrapper section">
+    <div class="container">
+
+      <!-- Safety Categories Navigation Tabs -->
+      <div class="safety-nav-tabs">
+        <button class="safety-tab-btn active" data-cat="flood">
+          <i class="fas fa-water text-primary"></i> Flood Safety
+        </button>
+        <button class="safety-tab-btn" data-cat="cyclone">
+          <i class="fas fa-wind" style="color:#0284C7;"></i> Cyclone Safety
+        </button>
+        <button class="safety-tab-btn" data-cat="earthquake">
+          <i class="fas fa-house-crack" style="color:#D97706;"></i> Earthquake Safety
+        </button>
+        <button class="safety-tab-btn" data-cat="fire">
+          <i class="fas fa-fire text-danger"></i> Fire Safety
+        </button>
+        <button class="safety-tab-btn" data-cat="landslide">
+          <i class="fas fa-mountain" style="color:#78350F;"></i> Landslide Safety
+        </button>
+        <button class="safety-tab-btn" data-cat="heatwave">
+          <i class="fas fa-sun" style="color:#EA580C;"></i> Heatwave Safety
+        </button>
+      </div>
+
+      <!-- Active Guide Container -->
+      <div id="safety-guide-display">
+        <!-- Rendered dynamically by safety.js -->
+      </div>
+
+      <!-- Interactive Emergency Kit Checklist -->
+      <div class="checklist-card">
+        <div class="checklist-progress-header">
+          <div>
+            <span style="font-size:0.8rem; font-weight:700; color:#1E40AF; text-transform:uppercase; letter-spacing:0.04em;">72-Hour Survival Go-Bag</span>
+            <h3 style="font-size:1.5rem; font-weight:800; color:#14243A; margin-top:4px;">
+              <i class="fas fa-suitcase-medical text-primary"></i> Emergency Kit Interactive Checklist
+            </h3>
+            <p style="color:#64748B; font-size:0.9rem;">
+              Assemble these essential items in an easily transportable backpack. Your checklist progress is automatically remembered.
+            </p>
+          </div>
+          <div style="text-align:right;">
+            <span id="checklist-count-label" style="font-weight:700; color:#14243A; font-size:0.95rem;">0 of 9 Packed (0%)</span>
+            <button id="btn-reset-checklist" class="btn btn-secondary btn-sm" style="margin-left:12px;">
+              <i class="fas fa-rotate-left"></i> Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container" style="height:10px; margin-top:12px;">
+          <div id="checklist-progress-fill" class="progress-bar-fill" style="width:0%; background-color:#16A34A;"></div>
+        </div>
+
+        <!-- Checklist Grid -->
+        <div class="checklist-items-grid" id="checklist-items-grid">
+          <!-- Rendered dynamically by safety.js -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h4><i class="fas fa-shield-heart" style="color:#DC2626;"></i> DisasterGuard</h4>
+        <p>A modern disaster management system designed for public safety and community preparedness.</p>
+        <span class="footer-disclaimer-pill"><i class="fas fa-graduation-cap"></i> Educational Demonstration</span>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Live Map</a></li>
+          <li><a href="alerts.html">Alerts Feed</a></li>
+          <li><a href="shelters.html">Relief Shelters</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Preparedness</h5>
+        <ul class="footer-links">
+          <li><a href="safety.html">Safety Protocols</a></li>
+          <li><a href="about.html">About DisasterGuard</a></li>
+          <li><a href="login.html">Admin Console</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Emergency Hotlines</h5>
+        <div class="emergency-hotlines-box">
+          <div class="hotline-row"><span>Central Helpline:</span><span class="hotline-num">112</span></div>
+          <div class="hotline-row"><span>Ambulance:</span><span class="hotline-num">108</span></div>
+          <div class="hotline-row"><span>Fire Service:</span><span class="hotline-num">101</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2026 DisasterGuard. Demonstration project only.</div>
+      <a href="about.html" style="color:#94A3B8;">Project Purpose & Limitations</a>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/safety.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "usr_admin_01",
+    "name": "DisasterGuard Administrator",
+    "email": "admin@disasterguard.org",
+    "password": "$2a$10$mf7X4IF27bDoPS.RC9dCZuQ9yVfM3J808DmETcUGMA3u/KtS6jMu.",
+    "role": "admin",
+    "createdAt": "2026-01-15T08:00:00.000Z"
+  }
+]
